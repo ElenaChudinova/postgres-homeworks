@@ -25,14 +25,14 @@ ORDER BY sum_freight DESC;
 
 -- 6. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers) и работники (employees).
 SELECT country FROM customers
-UNION
+INTERSECT
 SELECT country FROM suppliers
-UNION
+INTERSECT
 SELECT country FROM employees;
 
 -- 7. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers), но не зарегистрированы работники (employees).
 SELECT country FROM customers
-UNION
+INTERSECT
 SELECT country FROM suppliers
 EXCEPT
 SELECT country FROM employees;
